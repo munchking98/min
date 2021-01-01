@@ -1,0 +1,200 @@
+.archeage {
+  position: relative;
+  display: flex;
+  height: 1200px;
+}
+.pic {
+  position: relative;
+  width: 930px;
+  height: 530px;
+}
+.click {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  /* border: 1px solid red; */
+  background-color: blue;
+  color: white;
+  border-radius: 50%;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+
+.click:nth-child(1) {
+  position: absolute;
+  right: 380px;
+  bottom: 120px;
+}
+.click:nth-child(2) {
+  position: absolute;
+  right: 380px;
+  bottom: 145px;
+}
+.click:nth-child(3) {
+  position: absolute;
+  right: 320px;
+  bottom: 135px;
+}
+.click:nth-child(4) {
+  position: absolute;
+  right: 295px;
+  bottom: 135px;
+}
+.click:nth-child(5) {
+  position: absolute;
+  right: 320px;
+  bottom: 175px;
+}
+.click:nth-child(6) {
+  position: absolute;
+  right: 295px;
+  bottom: 175px;
+}
+.click:nth-child(7) {
+  position: absolute;
+  right: 320px;
+  top: 250px;
+}
+.click:nth-child(8) {
+  position: absolute;
+  right: 295px;
+  top: 230px;
+}
+.click:nth-child(9) {
+  position: absolute;
+  right: 320px;
+  top: 225px;
+}
+.click:nth-child(10) {
+  position: absolute;
+  right: 300px;
+  top: 205px;
+}
+.click:nth-child(11) {
+  position: absolute;
+  right: 290px;
+  top: 155px;
+}
+.click:nth-child(12) {
+  position: absolute;
+  right: 295px;
+  top: 135px;
+}
+.click:nth-child(13) {
+  position: absolute;
+  right: 320px;
+  top: 155px;
+}
+.click:nth-child(14) {
+  position: absolute;
+  right: 320px;
+  top: 135px;
+}
+.click:nth-child(15) {
+  position: absolute;
+  right: 300px;
+  top: 105px;
+}
+.click:nth-child(16) {
+  position: absolute;
+  right: 300px;
+  top: 80px;
+}
+.click:nth-child(17) {
+  position: absolute;
+  right: 330px;
+  top: 80px;
+}
+.click:nth-child(18) {
+  position: absolute;
+  right: 330px;
+  top: 105px;
+}
+.click:nth-child(19) {
+  position: absolute;
+  right: 370px;
+  top: 155px;
+}
+.click:nth-child(20) {
+  position: absolute;
+  right: 390px;
+  top: 155px;
+}
+.click:nth-child(21) {
+  position: absolute;
+  right: 370px;
+  top: 125px;
+}
+.click:nth-child(22) {
+  position: absolute;
+  right: 390px;
+  top: 125px;
+}
+.click:nth-child(23) {
+  position: absolute;
+  left: 350px;
+  bottom: 160px;
+}
+.click:nth-child(24) {
+  position: absolute;
+  left: 325px;
+  bottom: 160px;
+}
+
+.click:nth-child(25) {
+  position: absolute;
+  left: 325px;
+  bottom: 135px;
+}
+.click:nth-child(26) {
+  position: absolute;
+  left: 350px;
+  bottom: 135px;
+}
+
+.delete {
+  margin-left: 10px;
+  cursor: pointer;
+  width: 60px;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.time {
+  position: absolute;
+  font-size: 120px;
+  top: 50%;
+  right: 50%;
+}
+table {
+  border: 1px solid black;
+  text-align: center;
+}
+table th {
+  border: 1px solid black;
+  width: 80px;
+  background-color: #cef6ec;
+}
+table th:nth-child(4) {
+  width: 100px;
+}
+table td {
+  border: 1px solid black;
+  width: 50px;
+  height: 20px;
+}
+table tr:nth-child(even) {
+  background-color: #cef6ec;
+}
+.delBtn {
+  cursor: pointer;
+}
