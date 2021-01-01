@@ -18,14 +18,9 @@ respawn.forEach((t) => {
 });
 const leftTimes = [];
 times.map((t) => {
-  if ((hour * 60 + min) * 60 < 86400) {
-    leftTimes.push(t - (hour * 60 + min) * 60 + 86400);
-  } else {
-    leftTimes.push(t - (hour * 60 + min) * 60);
-  }
+  leftTimes.push(t - (hour * 60 + min) * 60);
 });
-console.log(times);
-console.log(leftTimes);
+
 setInterval(() => {
   lefts.forEach(async (t, index) => {
     const hour = Math.floor(leftTimes[index] / 60 / 60);
@@ -34,7 +29,7 @@ setInterval(() => {
       min < 10 ? `0${min}` : min
     }`;
     leftTimes[index] -= 1;
-    // console.log(leftTimes[index]);
+    console.log(leftTimes[index]);
     // if (leftTimes[index] <= 0) {
     //   const moleNumber = t.parentNode.querySelector('td').textContent;
     //   console.log(moleNumber);

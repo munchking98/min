@@ -18,13 +18,8 @@ respawn.forEach((t) => {
 });
 const leftTimes = [];
 times.map((t) => {
-  if ((hour * 60 + min) * 60 < 86400) {
-    leftTimes.push(t - (hour * 60 + min) * 60 + 86400);
-  } else {
-    leftTimes.push(t - (hour * 60 + min) * 60);
-  }
+  leftTimes.push(t - (hour * 60 + min) * 60);
 });
-console.log(times);
 console.log(leftTimes);
 setInterval(() => {
   lefts.forEach(async (t, index) => {
