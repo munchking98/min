@@ -11,7 +11,7 @@ const connect = () => {
       useNewUrlParser: true,
       useCreateIndex: true,
     },
-    function (err, client) {
+    (err) => {
       if (err) {
         console.log('몽고디비 연결 에러', err);
       } else {

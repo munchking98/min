@@ -29,9 +29,8 @@ setInterval(() => {
       min < 10 ? `0${min}` : min
     }`;
     leftTimes[index] -= 1;
-    if (leftTimes[index] <= 0) {
+    if (leftTimes[index] === 0) {
       const moleNumber = t.parentNode.querySelector('td').textContent;
-      console.log(moleNumber);
       await axios.delete(`/moles/${moleNumber}`);
       location.reload();
     }
