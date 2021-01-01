@@ -41,7 +41,7 @@ setInterval(() => {
     }
     load += 0.25;
     console.log(load);
-    if (load === 30) {
+    if (load === 15) {
       location.reload();
       load = 0;
     }

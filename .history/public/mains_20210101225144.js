@@ -39,9 +39,9 @@ setInterval(() => {
       await axios.delete(`/moles/${moleNumber}`);
       location.reload();
     }
-    load += 0.25;
+    load += 0.5;
     console.log(load);
-    if (load === 30) {
+    if (load === 15) {
       location.reload();
       load = 0;
     }
