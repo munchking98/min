@@ -24,35 +24,32 @@ times.map((t) => {
     leftTimes.push(t - (hour * 60 + min) * 60);
   }
 });
-let load = 30;
+let load = 0;
 
-setInterval(() => {
-  lefts.forEach(async (t, index) => {
-    const hour = Math.floor(leftTimes[index] / 60 / 60);
-    const min = Math.floor((leftTimes[index] / 60) % 60);
-    t.textContent = `${hour < 10 ? `0${hour}` : hour}:${
-      min < 10 ? `0${min}` : min
-    }`;
-    leftTimes[index] -= 1;
-    if (leftTimes[index] <= 0) {
-      const moleNumber = t.parentNode.querySelector('td').textContent;
-      console.log(moleNumber);
-      await axios.delete(`/moles/${moleNumber}`);
-      location.reload();
-    }
-  });
-  load--;
-  document.querySelector('.count').textContent = `${
-    load < 10 ? `0${load}` : load
-  }`;
-  if (load === 0) {
-    location.reload();
-    load = 30;
-  }
-}, 1000);
-document.querySelector('.reload').addEventListener('click', () => {
-  location.reload();
-});
+// setInterval(() => {
+//   lefts.forEach(async (t, index) => {
+//     console.log(moles);
+//     const hour = Math.floor(leftTimes[index] / 60 / 60);
+//     const min = Math.floor((leftTimes[index] / 60) % 60);
+//     t.textContent = `${hour < 10 ? `0${hour}` : hour}:${
+//       min < 10 ? `0${min}` : min
+//     }`;
+//     leftTimes[index] -= 1;
+//     if (leftTimes[index] <= 0) {
+//       const moleNumber = t.parentNode.querySelector('td').textContent;
+//       console.log(moleNumber);
+//       await axios.delete(`/moles/${moleNumber}`);
+//       location.reload();
+//     }
+//     load += 0.25;
+//     console.log(load);
+//     if (load === 30) {
+//       location.reload();
+//       load = 0;
+//     }
+//   });
+// }, 1000);
+
 // 숫자볼 선언 ************************************
 for (let i = 0; i <= 25; i++) {
   const num = document.createElement('div');

@@ -24,8 +24,10 @@ times.map((t) => {
     leftTimes.push(t - (hour * 60 + min) * 60);
   }
 });
-let load = 30;
-
+let load = 0;
+const res = await axios.get(`/moles`);
+const moles = res.data.length;
+console.log(moles);
 setInterval(() => {
   lefts.forEach(async (t, index) => {
     const hour = Math.floor(leftTimes[index] / 60 / 60);
@@ -40,19 +42,15 @@ setInterval(() => {
       await axios.delete(`/moles/${moleNumber}`);
       location.reload();
     }
+    load += 0.25;
+    console.log(load);
+    if (load === 30) {
+      location.reload();
+      load = 0;
+    }
   });
-  load--;
-  document.querySelector('.count').textContent = `${
-    load < 10 ? `0${load}` : load
-  }`;
-  if (load === 0) {
-    location.reload();
-    load = 30;
-  }
 }, 1000);
-document.querySelector('.reload').addEventListener('click', () => {
-  location.reload();
-});
+
 // 숫자볼 선언 ************************************
 for (let i = 0; i <= 25; i++) {
   const num = document.createElement('div');

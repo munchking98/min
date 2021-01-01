@@ -42,17 +42,12 @@ setInterval(() => {
     }
   });
   load--;
-  document.querySelector('.count').textContent = `${
-    load < 10 ? `0${load}` : load
-  }`;
-  if (load === 0) {
+  if (load === 30) {
     location.reload();
     load = 30;
   }
 }, 1000);
-document.querySelector('.reload').addEventListener('click', () => {
-  location.reload();
-});
+
 // 숫자볼 선언 ************************************
 for (let i = 0; i <= 25; i++) {
   const num = document.createElement('div');

@@ -201,13 +201,7 @@ table tr:nth-child(even) {
 .reload {
   display: flex;
   flex-direction: column;
-  margin: 0 0 0 30px;
-  border-radius: 10px;
-  height: 50px;
-  padding: 10px 5px 0px 5px;
-  background-color: dimgrey;
-  color: white;
-  cursor: pointer;
+  margin-left: 30px;
 }
 .reload .count {
   text-align: center;

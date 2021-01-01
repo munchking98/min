@@ -50,9 +50,7 @@ setInterval(() => {
     load = 30;
   }
 }, 1000);
-document.querySelector('.reload').addEventListener('click', () => {
-  location.reload();
-});
+
 // 숫자볼 선언 ************************************
 for (let i = 0; i <= 25; i++) {
   const num = document.createElement('div');

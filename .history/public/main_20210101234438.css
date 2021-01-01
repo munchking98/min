@@ -207,7 +207,6 @@ table tr:nth-child(even) {
   padding: 10px 5px 0px 5px;
   background-color: dimgrey;
   color: white;
-  cursor: pointer;
 }
 .reload .count {
   text-align: center;

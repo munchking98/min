@@ -24,7 +24,7 @@ times.map((t) => {
     leftTimes.push(t - (hour * 60 + min) * 60);
   }
 });
-let load = 30;
+let load = 0;
 
 setInterval(() => {
   lefts.forEach(async (t, index) => {
@@ -41,18 +41,13 @@ setInterval(() => {
       location.reload();
     }
   });
-  load--;
-  document.querySelector('.count').textContent = `${
-    load < 10 ? `0${load}` : load
-  }`;
-  if (load === 0) {
+  load++;
+  if (load === 30) {
     location.reload();
-    load = 30;
+    load = 0;
   }
 }, 1000);
-document.querySelector('.reload').addEventListener('click', () => {
-  location.reload();
-});
+
 // 숫자볼 선언 ************************************
 for (let i = 0; i <= 25; i++) {
   const num = document.createElement('div');
