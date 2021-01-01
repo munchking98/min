@@ -16,14 +16,14 @@ respawn.forEach((t) => {
       60,
   );
 });
-const leftTimes = [];
-times.map((t) => {
-  if (new Date().getHours() + 3 <= 24) {
-    leftTimes.push(t - (hour * 60 + min) * 60);
-  } else {
-    leftTimes.push(t - (hour * 60 + min) * 60 + 86400);
-  }
-});
+const leftTimes = [5, 5];
+// times.map((t) => {
+//   if ((hour * 60 + min) * 60 < 86400) {
+//     leftTimes.push(t - (hour * 60 + min) * 60 + 86400);
+//   } else {
+//     leftTimes.push(t - (hour * 60 + min) * 60);
+//   }
+// });
 let load = 30;
 let zero = 3600;
 setInterval(() => {

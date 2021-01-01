@@ -18,10 +18,10 @@ respawn.forEach((t) => {
 });
 const leftTimes = [];
 times.map((t) => {
-  if (new Date().getHours() + 3 <= 24) {
-    leftTimes.push(t - (hour * 60 + min) * 60);
+  if ((hour * 60 + min) * 60 + t - (hour * 60 + min) * 60 < 86400) {
+    leftTimes.push(t - (hour * 60 + min) * 60) + 86400;
   } else {
-    leftTimes.push(t - (hour * 60 + min) * 60 + 86400);
+    leftTimes.push(t - (hour * 60 + min) * 60) - 86400;
   }
 });
 let load = 30;

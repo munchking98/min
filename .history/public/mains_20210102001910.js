@@ -8,7 +8,7 @@ const time = new Date();
 const hour = time.getHours();
 const min = time.getMinutes();
 
-const times = [];
+const times = ['23:59'];
 respawn.forEach((t) => {
   times.push(
     (Number(t.textContent.substr(0, 2)) * 60 +
@@ -18,10 +18,10 @@ respawn.forEach((t) => {
 });
 const leftTimes = [];
 times.map((t) => {
-  if (new Date().getHours() + 3 <= 24) {
+  if ((hour * 60 + min) * 60 < 86400) {
     leftTimes.push(t - (hour * 60 + min) * 60);
   } else {
-    leftTimes.push(t - (hour * 60 + min) * 60 + 86400);
+    leftTimes.push(t - (hour * 60 + min) * 60);
   }
 });
 let load = 30;
