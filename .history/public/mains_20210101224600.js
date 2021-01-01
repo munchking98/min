@@ -24,7 +24,7 @@ times.map((t) => {
     leftTimes.push(t - (hour * 60 + min) * 60);
   }
 });
-let load = 0;
+const load = 0;
 setInterval(() => {
   lefts.forEach(async (t, index) => {
     const hour = Math.floor(leftTimes[index] / 60 / 60);
@@ -41,7 +41,7 @@ setInterval(() => {
       location.reload();
     }
     load++;
-    if (load === 15) {
+    if (load === 5) {
       location.reload();
       load = 0;
     }

@@ -41,7 +41,7 @@ setInterval(() => {
       location.reload();
     }
     load++;
-    if (load === 15) {
+    if (load === 30) {
       location.reload();
       load = 0;
     }
