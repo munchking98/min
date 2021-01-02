@@ -16,41 +16,19 @@ respawn.forEach((t) => {
       60,
   );
 });
-const leftTimes = [10];
-times.map((t) => {
-  if (new Date().getHours() + 3 <= 24) {
-    leftTimes.push(t - (hour * 60 + min) * 60);
-  } else {
-    leftTimes.push(t - (hour * 60 + min) * 60 + 86400);
-  }
-});
+const leftTimes = [5, 10, 15];
+// times.map((t) => {
+//   if (new Date().getHours() + 3 <= 24) {
+//     leftTimes.push(t - (hour * 60 + min) * 60);
+//   } else {
+//     leftTimes.push(t - (hour * 60 + min) * 60 + 86400);
+//   }
+// });
 let load = 30;
 const state = {
   red: 'red',
   green: 'green',
 };
-const gohell = 60;
-setInterval(async () => {
-  try {
-    const hellres = await axios.get('/hells');
-    const hellData = hellres.data;
-    for (let i = 0; i <= hellData.length; i++) {
-      const a =
-        (Number(hellData[i].respawnTime.substr(0, 2)) * 60 +
-          Number(hellData[i].respawnTime.substr(4, 2))) *
-          60 +
-        gohell;
-      const b =
-        Number(hellData[i].respawnTime.substr(0, 2)) + 3 <= 24 ? a : a + 86400;
-
-      b <= (new Date().getHours() * 60 + new Date().getMinutes()) * 60
-        ? await axios.delete(`hells/${hellData[i].moleNumber}`)
-        : '';
-    }
-  } catch (err) {
-    console.error(err);
-  }
-}, 60000);
 setInterval(async () => {
   lefts.forEach(async (t, index) => {
     const hour = Math.floor(leftTimes[index] / 60 / 60);
@@ -80,6 +58,12 @@ setInterval(async () => {
   if (load === 0) {
     location.reload();
     load = 30;
+  }
+  const reshell = await axios.get('/hells');
+  const resData = reshell.data;
+  console.log(resData);
+  if (resData) {
+    res.data;
   }
 }, 1000);
 document.querySelector('.reload').addEventListener('click', () => {

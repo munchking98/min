@@ -14,7 +14,7 @@ const moleSchema = new Schema({
     type: String,
     required: true,
   },
-  moleState: {
+  state: {
     type: String,
     required: true,
   },

@@ -7,7 +7,8 @@ router.get('/', async (req, res, next) => {
   try {
     const moles = await Mole.find({});
     const hells = await Hell.find({});
-    res.render('mongoose', { moles, hells });
+    res.render('mongoose', { moles });
+    res.render('mongoose', { hells });
   } catch (err) {
     console.error(err);
     next(err);

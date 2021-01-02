@@ -16,7 +16,7 @@ respawn.forEach((t) => {
       60,
   );
 });
-const leftTimes = [10];
+const leftTimes = [];
 times.map((t) => {
   if (new Date().getHours() + 3 <= 24) {
     leftTimes.push(t - (hour * 60 + min) * 60);
@@ -29,7 +29,7 @@ const state = {
   red: 'red',
   green: 'green',
 };
-const gohell = 60;
+const gohell = 5400;
 setInterval(async () => {
   try {
     const hellres = await axios.get('/hells');
@@ -40,10 +40,8 @@ setInterval(async () => {
           Number(hellData[i].respawnTime.substr(4, 2))) *
           60 +
         gohell;
-      const b =
-        Number(hellData[i].respawnTime.substr(0, 2)) + 3 <= 24 ? a : a + 86400;
-
-      b <= (new Date().getHours() * 60 + new Date().getMinutes()) * 60
+      console.log(a);
+      a <= (new Date().getHours() * 60 + new Date().getMinutes()) * 60
         ? await axios.delete(`hells/${hellData[i].moleNumber}`)
         : '';
     }

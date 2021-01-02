@@ -20,7 +20,6 @@ router
         moleNumber: req.body.moleNumber,
         cutTime: req.body.cutTime,
         respawnTime: req.body.respawnTime,
-        moleState: req.body.moleState,
       });
       console.log(mole);
       res.status(201).json(mole);

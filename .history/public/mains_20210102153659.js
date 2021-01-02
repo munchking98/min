@@ -8,15 +8,15 @@ const time = new Date();
 const hour = time.getHours();
 const min = time.getMinutes();
 
-const times = [];
-respawn.forEach((t) => {
-  times.push(
-    (Number(t.textContent.substr(0, 2)) * 60 +
-      Number(t.textContent.substr(4, 6))) *
-      60,
-  );
-});
-const leftTimes = [10];
+const times = [10];
+// respawn.forEach((t) => {
+//   times.push(
+//     (Number(t.textContent.substr(0, 2)) * 60 +
+//       Number(t.textContent.substr(4, 6))) *
+//       60,
+//   );
+// });
+const leftTimes = [];
 times.map((t) => {
   if (new Date().getHours() + 3 <= 24) {
     leftTimes.push(t - (hour * 60 + min) * 60);
@@ -40,17 +40,16 @@ setInterval(async () => {
           Number(hellData[i].respawnTime.substr(4, 2))) *
           60 +
         gohell;
-      const b =
-        Number(hellData[i].respawnTime.substr(0, 2)) + 3 <= 24 ? a : a + 86400;
-
-      b <= (new Date().getHours() * 60 + new Date().getMinutes()) * 60
+      console.log(a);
+      console.log((new Date().getHours() * 60 + new Date().getMinutes()) * 60);
+      a <= (new Date().getHours() * 60 + new Date().getMinutes()) * 60
         ? await axios.delete(`hells/${hellData[i].moleNumber}`)
         : '';
     }
   } catch (err) {
     console.error(err);
   }
-}, 60000);
+}, 1000);
 setInterval(async () => {
   lefts.forEach(async (t, index) => {
     const hour = Math.floor(leftTimes[index] / 60 / 60);

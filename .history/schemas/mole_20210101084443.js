@@ -14,10 +14,7 @@ const moleSchema = new Schema({
     type: String,
     required: true,
   },
-  moleState: {
-    type: String,
-    required: true,
-  },
+
   date: {
     type: Date,
     default: Date.now,

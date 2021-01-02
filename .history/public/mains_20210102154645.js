@@ -42,7 +42,8 @@ setInterval(async () => {
         gohell;
       const b =
         Number(hellData[i].respawnTime.substr(0, 2)) + 3 <= 24 ? a : a + 86400;
-
+      console.log(b);
+      console.log((new Date().getHours() * 60 + new Date().getMinutes()) * 60);
       b <= (new Date().getHours() * 60 + new Date().getMinutes()) * 60
         ? await axios.delete(`hells/${hellData[i].moleNumber}`)
         : '';
@@ -50,7 +51,7 @@ setInterval(async () => {
   } catch (err) {
     console.error(err);
   }
-}, 60000);
+}, 1000);
 setInterval(async () => {
   lefts.forEach(async (t, index) => {
     const hour = Math.floor(leftTimes[index] / 60 / 60);

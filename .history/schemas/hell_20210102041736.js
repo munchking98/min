@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-const moleSchema = new Schema({
+const hellSchema = new Schema({
   moleNumber: {
     type: Number,
     required: true,
@@ -14,14 +14,11 @@ const moleSchema = new Schema({
     type: String,
     required: true,
   },
-  moleState: {
-    type: String,
-    required: true,
-  },
+
   date: {
     type: Date,
     default: Date.now,
   },
 });
 
-module.exports = mongoose.model('Mole', moleSchema);
+module.exports = mongoose.model('Hell', hellSchema);

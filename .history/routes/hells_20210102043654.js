@@ -1,5 +1,5 @@
 const express = require('express');
-const Mole = require('../schemas/mole');
+const Hell = require('../schemas/hell');
 
 const router = express.Router();
 
@@ -7,28 +7,29 @@ router
   .route('/')
   .get(async (req, res, next) => {
     try {
-      const moles = await Mole.find({});
-      res.json(moles);
+      const hells = await Hell.find({});
+      res.json(hells);
     } catch (err) {
       console.error(err);
       next(err);
     }
   })
+
   .post(async (req, res, next) => {
     try {
-      const mole = await Mole.create({
+      const hell = await Hell.create({
         moleNumber: req.body.moleNumber,
-        cutTime: req.body.cutTime,
         respawnTime: req.body.respawnTime,
-        moleState: req.body.moleState,
+        hellState: req.body.hellState,
       });
-      console.log(mole);
-      res.status(201).json(mole);
+      console.log(hell);
+      res.status(201).json(hell);
     } catch (err) {
       console.error(err);
       next(err);
     }
   });
+
 router.route('/:moleNumber').delete(async (req, res, next) => {
   try {
     const result = await Mole.remove({ moleNumber: req.params.moleNumber });

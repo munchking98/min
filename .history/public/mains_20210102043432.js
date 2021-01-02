@@ -16,42 +16,20 @@ respawn.forEach((t) => {
       60,
   );
 });
-const leftTimes = [10];
-times.map((t) => {
-  if (new Date().getHours() + 3 <= 24) {
-    leftTimes.push(t - (hour * 60 + min) * 60);
-  } else {
-    leftTimes.push(t - (hour * 60 + min) * 60 + 86400);
-  }
-});
+const leftTimes = [5, 10, 15];
+// times.map((t) => {
+//   if (new Date().getHours() + 3 <= 24) {
+//     leftTimes.push(t - (hour * 60 + min) * 60);
+//   } else {
+//     leftTimes.push(t - (hour * 60 + min) * 60 + 86400);
+//   }
+// });
 let load = 30;
 const state = {
   red: 'red',
   green: 'green',
 };
-const gohell = 60;
-setInterval(async () => {
-  try {
-    const hellres = await axios.get('/hells');
-    const hellData = hellres.data;
-    for (let i = 0; i <= hellData.length; i++) {
-      const a =
-        (Number(hellData[i].respawnTime.substr(0, 2)) * 60 +
-          Number(hellData[i].respawnTime.substr(4, 2))) *
-          60 +
-        gohell;
-      const b =
-        Number(hellData[i].respawnTime.substr(0, 2)) + 3 <= 24 ? a : a + 86400;
-
-      b <= (new Date().getHours() * 60 + new Date().getMinutes()) * 60
-        ? await axios.delete(`hells/${hellData[i].moleNumber}`)
-        : '';
-    }
-  } catch (err) {
-    console.error(err);
-  }
-}, 60000);
-setInterval(async () => {
+setInterval(() => {
   lefts.forEach(async (t, index) => {
     const hour = Math.floor(leftTimes[index] / 60 / 60);
     const min = Math.floor((leftTimes[index] / 60) % 60);
@@ -63,6 +41,8 @@ setInterval(async () => {
     if (leftTimes[index] <= 0) {
       const moleNumber = t.parentNode.querySelector('td').textContent;
       const respawnTime = t.parentNode.querySelectorAll('td')[2].textContent;
+      console.log(respawnTime[2].textContent);
+      console.log(moleNumber);
       await axios.post(`/hells/`, {
         moleNumber,
         respawnTime,
@@ -97,9 +77,7 @@ const content = document.querySelectorAll('.click');
 (async function () {
   try {
     const res = await axios.get(`/moles`);
-    const reshell = await axios.get('/hells');
     const moles = res.data;
-    const hells = reshell.data;
     const moleNum = [];
     for (let i = 0; i < moles.length; i++) {
       content.forEach((t) => {
@@ -108,13 +86,6 @@ const content = document.querySelectorAll('.click');
         }
       });
       moleNum.push(moles[i].moleNumber);
-    }
-    for (let i = 0; i < hells.length; i++) {
-      content.forEach((t) => {
-        if (Number(t.textContent) === hells[i].moleNumber) {
-          t.classList.add('green');
-        }
-      });
     }
   } catch (err) {
     console.error(err);
@@ -133,7 +104,7 @@ setInterval(() => {
 // ****************************************************
 
 content.forEach((t) => {
-  t.addEventListener('click', async (e) => {
+  t.addEventListener('click', async () => {
     try {
       const time = new Date();
       const hour =
@@ -142,8 +113,6 @@ content.forEach((t) => {
         time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes();
       // const mole = res.data;
       const moleNumber = t.textContent;
-      const moleState = state.red;
-
       const cutTime = `${hour} : ${min} `;
       const respawnTime = `${
         new Date().getHours() + 3 <= 24
@@ -153,20 +122,11 @@ content.forEach((t) => {
 
       if (t.classList.contains('red')) {
         return;
-      } else if (t.classList.contains('green')) {
-        await axios.delete(`hells/${e.target.textContent}`);
-        await axios.post('/moles', {
-          moleNumber,
-          cutTime,
-          respawnTime,
-          moleState,
-        });
       } else {
         await axios.post('/moles', {
           moleNumber,
           cutTime,
           respawnTime,
-          moleState,
         });
       }
       location.reload();
