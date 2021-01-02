@@ -5,8 +5,8 @@ const connect = () => {
     mongoose.set('debug', true);
   }
   mongoose.connect(
-    'mongodb+srv://munchkin:rlfehd12@cluster0.2dexh.mongodb.net/Archeage?retryWrites=true&w=majority',
-    // 'mongodb://munchkin:rlfehd12@localhost:27017/admin',
+    // 'mongodb+srv://munchkin:rlfehd12@cluster0.2dexh.mongodb.net/Archeage?retryWrites=true&w=majority',
+    'mongodb://munchkin:rlfehd12@localhost:27017/admin',
     {
       dbName: 'Archeage',
       useNewUrlParser: true,
