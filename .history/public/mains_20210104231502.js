@@ -47,7 +47,6 @@ setInterval(async () => {
         ? await axios.delete(`hells/${hellData[i].moleNumber}`)
         : '';
     }
-    console.log(a, b);
   } catch (err) {
     console.error(err);
   }
