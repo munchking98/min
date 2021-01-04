@@ -18,7 +18,7 @@ respawn.forEach((t) => {
 });
 const leftTimes = [];
 times.map((t) => {
-  if (t + 10800 > 86400) {
+  if (new Date().getHours() + 3 < 24) {
     leftTimes.push(t - (hour * 60 + min) * 60);
   } else {
     leftTimes.push(t - (hour * 60 + min) * 60 + 86400);
@@ -41,9 +41,7 @@ setInterval(async () => {
           60 +
         gohell;
       const b =
-        Number(hellData[i].respawnTime.substr(0, 2)) + 10800 > 86400
-          ? a
-          : a + 86400;
+        Number(hellData[i].respawnTime.substr(0, 2)) + 3 < 24 ? a : a + 86400;
 
       b <= (new Date().getHours() * 60 + new Date().getMinutes()) * 60
         ? await axios.delete(`hells/${hellData[i].moleNumber}`)
