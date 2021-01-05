@@ -1,3 +1,5 @@
+const e = require('express');
+
 const moleMap = document.querySelector('.map');
 const delBtn = document.querySelectorAll('.delBtn');
 const timer = document.querySelector('.time');
@@ -25,9 +27,9 @@ times.map((t) => {
       new Date().getHours === 1 ||
       new Date().getHours === 2
     ) {
-      leftTimes.push(t - oneDay - (hour * 60 + min) * 60);
-    } else {
       leftTimes.push(t + oneDay - (hour * 60 + min) * 60);
+    } else {
+      leftTimes.push(t - oneDay - (hour * 60 + min) * 60);
     }
   } else {
     leftTimes.push(t - (hour * 60 + min) * 60);

@@ -1,3 +1,5 @@
+const e = require('express');
+
 const moleMap = document.querySelector('.map');
 const delBtn = document.querySelectorAll('.delBtn');
 const timer = document.querySelector('.time');

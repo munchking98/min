@@ -20,15 +20,7 @@ const oneDay = 86400;
 const leftTimes = [];
 times.map((t) => {
   if (t + 10800 >= oneDay) {
-    if (
-      new Date().getHours === 0 ||
-      new Date().getHours === 1 ||
-      new Date().getHours === 2
-    ) {
-      leftTimes.push(t - oneDay - (hour * 60 + min) * 60);
-    } else {
-      leftTimes.push(t + oneDay - (hour * 60 + min) * 60);
-    }
+    leftTimes.push(t + oneDay - (hour * 60 + min) * 60);
   } else {
     leftTimes.push(t - (hour * 60 + min) * 60);
   }
