@@ -1,4 +1,9 @@
 const moleMap = document.querySelector('.map');
+const delBtn = document.querySelectorAll('.delBtn');
+const timer = document.querySelector('.time');
+const lefts = document.querySelectorAll('.lefts');
+const respawn = document.querySelectorAll('.respawn');
+
 for (let i = 0; i <= 25; i++) {
   const num = document.createElement('div');
   num.classList.add('click');

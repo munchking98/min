@@ -43,7 +43,9 @@ setInterval(async () => {
           60 +
         gohell;
       const b =
-        Number(hellData[i].respawnTime.substr(0, 2)) + 3 >= 24 ? a - 86400 : a;
+        Number(hellData[i].respawnTime.substr(0, 2)) + 3 >= 24
+          ? (a -= 86400)
+          : a;
 
       b <= (new Date().getHours() * 60 + new Date().getMinutes()) * 60
         ? await axios.delete(`hells/${hellData[i].moleNumber}`)

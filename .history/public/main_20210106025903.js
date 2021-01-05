@@ -1,12 +1,3 @@
-const moleMap = document.querySelector('.map');
-for (let i = 0; i <= 25; i++) {
-  const num = document.createElement('div');
-  num.classList.add('click');
-  num.textContent = i + 1;
-  moleMap.appendChild(num);
-}
-const content = document.querySelectorAll('.click');
-
 content.forEach((t) => {
   t.addEventListener('click', async (e) => {
     try {
@@ -16,11 +7,12 @@ content.forEach((t) => {
       const min =
         time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes();
       const moleNumber = t.textContent;
+      const moleState = 'red';
 
       const cutTime = `${hour} : ${min} `;
       const respawnTime = `${
         new Date().getHours() + 3 <= 24
-          ? `0${new Date().getHours() + 3}`
+          ? `${new Date().getHours() + 3}`
           : `0${new Date().getHours() + 3 - 24}`
       } : ${min}`;
 
@@ -33,12 +25,14 @@ content.forEach((t) => {
           moleNumber,
           cutTime,
           respawnTime,
+          moleState,
         });
       } else {
         await axios.post('/moles', {
           moleNumber,
           cutTime,
           respawnTime,
+          moleState,
         });
       }
       location.reload();

@@ -52,7 +52,7 @@ setInterval(async () => {
   } catch (err) {
     console.error(err);
   }
-}, 60000);
+}, 2000);
 setInterval(async () => {
   lefts.forEach(async (t, index) => {
     const hour = Math.floor(leftTimes[index] / 60 / 60);

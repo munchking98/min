@@ -17,13 +17,20 @@ respawn.forEach((t) => {
   );
 });
 const oneDay = 86400;
-const cho = (hour * 60 + min) * 60;
 const leftTimes = [];
 times.map((t) => {
   if (t + 10800 >= oneDay) {
-    leftTimes.push(t + (oneDay - cho));
+    if (
+      new Date().getHours === 0 ||
+      new Date().getHours === 1 ||
+      new Date().getHours === 2
+    ) {
+      leftTimes.push(t - oneDay - (hour * 60 + min) * 60);
+    } else {
+      leftTimes.push(t + oneDay - (hour * 60 + min) * 60);
+    }
   } else {
-    leftTimes.push(t - cho);
+    leftTimes.push(t - (hour * 60 + min) * 60);
   }
 });
 let load = 30;
@@ -43,7 +50,9 @@ setInterval(async () => {
           60 +
         gohell;
       const b =
-        Number(hellData[i].respawnTime.substr(0, 2)) + 3 >= 24 ? a - 86400 : a;
+        Number(hellData[i].respawnTime.substr(0, 2)) + 3 >= 24
+          ? (a -= 86400)
+          : a;
 
       b <= (new Date().getHours() * 60 + new Date().getMinutes()) * 60
         ? await axios.delete(`hells/${hellData[i].moleNumber}`)
