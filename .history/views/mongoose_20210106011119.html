@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <title>두덕쥐</title>
+  </head>
+  <body>
+    <div class="archeage">
+      <div class="pic">
+        <img src="/arc.png" />
+        <div class="map"></div>
+      </div>
+
+      <table class="stat">
+        <thead>
+          <tr>
+            <th class="number">번호</th>
+            <th class="cut">Cut</th>
+            <th class="gen">젠타임</th>
+            <th class="nam">남은시간</th>
+            <th class="del">삭제</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for mole in moles %}
+          <tr>
+            <td>{{mole.moleNumber}}</td>
+            <td>{{mole.cutTime}}</td>
+            <td class="respawn">{{mole.respawnTime}}</td>
+            <td class="lefts"></td>
+            <td class="delBtn">X</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="reload">
+        <span>새로고침</span>
+        <span class="count">0</span>
+      </div>
+
+      <div class="time"></div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/main.js"></script>
+    <!-- <script src="/mongoose.js"></script> -->
+  </body>
+</html>

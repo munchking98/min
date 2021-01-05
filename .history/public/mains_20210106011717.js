@@ -16,13 +16,12 @@ respawn.forEach((t) => {
       60,
   );
 });
-const oneDay = 86400;
 const leftTimes = [];
 times.map((t) => {
   if (t + 10800 >= oneDay) {
-    leftTimes.push(t + (hour * 60 + min) * 60 - oneDay);
+    leftTimes.push((hour * 60 + min) * 60) - oneDay - t;
   } else {
-    leftTimes.push(t - (hour * 60 + min) * 60);
+    leftTimes.push((hour * 60 + min) * 60) - t;
   }
 });
 let load = 30;
