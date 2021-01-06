@@ -22,7 +22,7 @@ const leftTimes = [];
 times.map((t) => {
   const a = t + cho;
   if (t < cho) {
-    leftTimes.push(t + (oneDay - cho));
+    leftTimes.push(t - cho);
     console.log(t, cho, '+');
   } else {
     leftTimes.push(t - cho);

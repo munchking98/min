@@ -21,8 +21,8 @@ const cho = (hour * 60 + min) * 60;
 const leftTimes = [];
 times.map((t) => {
   const a = t + cho;
-  if (t < cho) {
-    leftTimes.push(t + (oneDay - cho));
+  if (t < 10800) {
+    leftTimes.push(t - (oneDay - cho));
     console.log(t, cho, '+');
   } else {
     leftTimes.push(t - cho);
