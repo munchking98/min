@@ -65,7 +65,7 @@ setInterval(async () => {
     }`;
     leftTimes[index]--;
     const hellState = state.green;
-    if (leftTimes[index] <= 0) {
+    if (leftTimes[index] <= 10) {
       const moleNumber = t.parentNode.querySelector('td').textContent;
       const respawnTime = t.parentNode.querySelectorAll('td')[2].textContent;
       await axios.post(`/hells/`, {
