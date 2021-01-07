@@ -149,11 +149,19 @@ content.forEach((t) => {
       const moleState = 'red';
 
       const cutTime = `${hour} : ${min} `;
-      const respawnTime = `${
-        new Date().getHours() + 3 <= 24
-          ? `${new Date().getHours() + 3}`
-          : `0${new Date().getHours() + 3 - 24}`
-      } : ${min}`;
+      // const respawnTime = `${
+      //   new Date().getHours() + 3 <= 24
+      //     ? `${new Date().getHours() + 3}`
+      //     : `0${new Date().getHours() + 3 - 24}`
+      // } : ${min}`;
+      let respawnTime = 0;
+      if (new Date().getHours() + 3 === 24) {
+        respawnTime = 0;
+      } else if (new Date().getHours() + 3 < 24) {
+        respawnTime = new Date().getHours() + 3;
+      } else {
+        respawnTime = `0${new Date().getHours() + 3 - 24}`;
+      }
 
       if (t.classList.contains('red')) {
         return;

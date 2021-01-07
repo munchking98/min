@@ -12,7 +12,9 @@ const macroStart = async (pepiId, pepiPwd) => {
   await page.click('a[href="https://archeage.xlgames.com"]');
 
   await page.waitFor(3000);
-  await page.click('.btn-portal-login');
+  const lo = await page.click(
+    'a[href="https://member.xlgames.com/user/login/form?forwardUrl=https://archeage.xlgames.com"]',
+  );
   await page.waitFor(3000);
 
   await page.evaluate(

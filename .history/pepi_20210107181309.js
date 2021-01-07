@@ -9,10 +9,12 @@ const macroStart = async (pepiId, pepiPwd) => {
   await page.goto(
     'https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EC%95%84%ED%82%A4%EC%97%90%EC%9D%B4%EC%A7%80',
   );
-  await page.click('a[href="https://archeage.xlgames.com"]');
+  await page.click(
+    'a[href="https://member.xlgames.com/user/login/form?forwardUrl=https://archeage.xlgames.com"]',
+  );
 
   await page.waitFor(3000);
-  await page.click('.btn-portal-login');
+  const lo = await page.goto('a[href=');
   await page.waitFor(3000);
 
   await page.evaluate(
