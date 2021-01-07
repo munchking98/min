@@ -25,24 +25,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/', indexRouter);
 app.use('/moles', moleRouter);
 app.use('/hells', hellRouter);
-app.get('/pepiCheck', (req, res) => {
-  res.render('pepiCheck', { title: '내 정보 - NodeBird' });
+app.get('/profile', (req, res) => {
+  res.render('profile', { title: '내 정보 - NodeBird' });
 });
 
-const pepi = require('./pepi');
-app.post('/pepi', function async(req, res) {
-  try {
-    const pepiId = req.body.id;
-    const pepiPwd = req.body.pw;
-
-    pepi.macroStart(pepiId, pepiPwd);
-
-    console.log(pepiId, pepiPwd);
-    res.end();
-  } catch (err) {
-    console.error(err);
-  }
-});
 app.use((req, res, next) => {
   const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
   error.status = 404;
