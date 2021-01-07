@@ -156,11 +156,11 @@ content.forEach((t) => {
       // } : ${min}`;
       let respawnTime = 0;
       if (new Date().getHours() + 3 === 24) {
-        respawnTime = `0:${min}`;
+        respawnTime = `0 : ${min}`;
       } else if (new Date().getHours() + 3 < 24) {
-        respawnTime = `${new Date().getHours() + 3}:${min}`;
+        respawnTime = `${new Date().getHours() + 3} : ${min}`;
       } else {
-        respawnTime = `0${new Date().getHours() + 3 - 24}:${min}`;
+        respawnTime = `0${new Date().getHours() + 3 - 24} : ${min}`;
       }
 
       if (t.classList.contains('red')) {
