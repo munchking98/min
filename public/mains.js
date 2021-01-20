@@ -91,7 +91,7 @@ document.querySelector('.reload').addEventListener('click', () => {
   location.reload();
 });
 // 숫자볼 선언 ************************************
-for (let i = 0; i <= 25; i++) {
+for (let i = 0; i <= 23; i++) {
   const num = document.createElement('div');
   num.classList.add('click');
   num.textContent = i + 1;
